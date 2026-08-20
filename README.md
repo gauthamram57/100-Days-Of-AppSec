@@ -1,24 +1,38 @@
-# 🛡️ 100 Days of AppSec
+# 🛡️ 100-Days-Of-AppSec
 
-Welcome to my Application Security journey! 
-
-I am a cybersecurity professional and bug bounty hunter currently holding the **PJPT (Practical Junior Penetration Tester)** and **ACP (API Security Certified Professional)** certifications. 
-
-My goal is to transition into an **Application Security Engineer** role. This repository serves as a daily log of my grind to master web exploitation, build DevSecOps pipelines, write secure code, and hunt for real-world vulnerabilities.
-
-## 🎯 Repository Goals
-* **Consistency:** Document 100 days of hands-on security practice.
-* **Web Exploitation:** Master the PortSwigger Web Security Academy labs (currently focusing on Access Control and Business Logic).
-* **Defensive Mindset:** Emphasize the "AppSec approach" by not just breaking apps, but understanding the root cause and writing secure code remediations.
-* **Tooling:** Develop custom scripts to automate API and web testing.
-
-## 📂 Structure
-* 📅 **[Daily-Logs/](./Daily-Logs/)**: My day-by-day diary of labs completed, bugs hunted, and technical lessons learned.
-* 🧠 **[Methodology/](./Methodology/)**: My personal playbooks, checklists, and step-by-step testing guides.
-* 🛠️ **[Custom-Scripts/](./Custom-Scripts/)**: Scripts I write to automate my workflows and offensive testing.
-
-## 🛑 A Note on Responsible Disclosure
-As an active bug bounty hunter on Vulnerability Disclosure Programs (VDPs), I take NDAs and confidentiality seriously. **You will not find any live target names, sensitive endpoints, or unpatched exploit data in this repository.** All real-world hunting logs are strictly abstracted to focus on the testing methodology, the security mechanism, and the code perspective.
+Documenting my daily journey of mastering Application Security, web exploitation, DevSecOps, and PortSwigger Web Security Academy labs.
 
 ---
-*"Hack to learn, learn to secure."*
+
+## 📁 Repository Structure & Notes Index
+
+Every vulnerability topic is organized into a standardized 3-file structure:
+1. **`<attack-type>-notes.md`**: Core theoretical concepts, attack taxonomy, and mitigation strategies.
+2. **`lab-notes.md`**: Practical lab walkthroughs, step-by-step solutions, and payload analysis.
+3. **`<attack-type>-automation-script.md`**: Custom Python scripts, PoCs, and automation templates.
+
+```
+PortSwigger-Labs/
+├── SQL-Injection/
+│   ├── sqli-notes.md               # SQLi Playbook & Attack Vectors
+│   ├── lab-notes.md                # PortSwigger SQLi Lab Solutions
+│   └── sqli-automation-script.md   # Python Blind SQLi Automation Script
+├── Authentication-Vulnerabilities/
+│   ├── authentication-notes.md     # Auth Factors & Flaw Mechanics
+│   ├── lab-notes.md                # Auth Lab Walkthroughs (Timing, Interleaving, Cookies)
+│   └── authentication-automation-script.md # Cookie Brute-Force Script
+├── Cross-Site-Scripting-XSS/
+│   ├── xss-notes.md                # Reflected, Stored & DOM XSS Playbook
+│   ├── lab-notes.md                # XSS Labs (Custom Tags, SVG, WAF Bypasses)
+│   └── xss-automation-script.md    # Cookie Exfiltration & JS Payloads
+└── CSRF/
+    ├── csrf-notes.md               # CSRF Mechanics & Prerequisites
+    ├── lab-notes.md                # CSRF Lab Walkthroughs
+    └── csrf-poc-generator.md       # Auto-Submitting HTML PoC Template
+```
+
+---
+
+## 📜 License
+
+This repository is licensed under the [MIT License](LICENSE).
