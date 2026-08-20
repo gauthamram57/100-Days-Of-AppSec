@@ -1,10 +1,10 @@
-# 🔄 Cross-Site Request Forgery (CSRF) Playbook
+# Cross-Site Request Forgery (CSRF) Playbook
 
-A comprehensive guide to Cross-Site Request Forgery (CSRF) vulnerabilities, attack prerequisites, SameSite cookie attributes, and defense strategies.
+A guide to Cross-Site Request Forgery (CSRF) vulnerabilities, attack prerequisites, SameSite cookie attributes, and defense strategies.
 
 ---
 
-## 📌 CSRF Mechanics
+## CSRF Mechanics
 
 CSRF occurs when a malicious website causes a victim's web browser to perform an unwanted action on a trusted site where the user is currently authenticated.
 
@@ -18,7 +18,7 @@ CSRF occurs when a malicious website causes a victim's web browser to perform an
 
 ---
 
-## 🎯 CSRF Prerequisites
+## CSRF Prerequisites
 
 1. **Relevant Action**: An action within the application that changes state or sensitive user data (e.g., email update, password reset, funds transfer).
 2. **Cookie-Based Session Handling**: The application relies exclusively on browser cookies to authenticate requests.
@@ -26,7 +26,7 @@ CSRF occurs when a malicious website causes a victim's web browser to perform an
 
 ---
 
-## 🛡️ Mitigation Strategies
+## Mitigation Strategies
 
 - **Anti-CSRF Tokens**: Include unique, unpredictable, secret tokens tied to the user's session in state-changing requests.
 - **SameSite Cookie Attribute**: Set `SameSite=Strict` or `SameSite=Lax` on sensitive cookies.

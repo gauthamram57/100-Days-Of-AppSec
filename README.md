@@ -1,10 +1,10 @@
-# 🛡️ 100-Days-Of-AppSec
+# 100-Days-Of-AppSec
 
 Documenting my daily journey of mastering Application Security, web exploitation, DevSecOps, container security, bug bounty methodology, networking, and PortSwigger Web Security Academy labs.
 
 ---
 
-## 📁 Repository Structure & Index
+## Repository Structure and Index
 
 ```
 100-Days-Of-AppSec/
@@ -25,6 +25,6 @@ Documenting my daily journey of mastering Application Security, web exploitation
 
 ---
 
-## 📜 License
+## License
 
 This repository is licensed under the [MIT License](LICENSE).

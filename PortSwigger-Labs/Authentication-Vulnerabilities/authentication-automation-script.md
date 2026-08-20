@@ -1,4 +1,4 @@
-# 🐍 Python Automation Script for Stay-Logged-In Cookie Brute-Forcing
+# Python Automation Script for Stay-Logged-In Cookie Brute-Forcing
 
 This script automates generating and testing `stay-logged-in` cookies formatted as `Base64(username:MD5(password))` against a target application endpoint.
 

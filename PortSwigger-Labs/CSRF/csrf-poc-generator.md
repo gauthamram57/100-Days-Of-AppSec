@@ -1,6 +1,6 @@
-# 🛠️ CSRF Proof-of-Concept (PoC) HTML Generator Template
+# CSRF Proof-of-Concept (PoC) HTML Generator Template
 
-An automated HTML PoC template for demonstrating CSRF vulnerabilities during penetration tests or bug bounty reports.
+An HTML PoC template for demonstrating CSRF vulnerabilities during penetration tests or bug bounty reports.
 
 ```html
 <!DOCTYPE html>

@@ -1,74 +1,64 @@
-# 🌐 HTTP Request Lifecycle & Security Architecture
+# HTTP Request Lifecycle and Security Architecture
 
-*Full notes imported from Notion.*
+## Overview
 
-## 📌 The Big Picture
-
-A request from your browser doesn't hit a single "server" — it hits a chain:
+A request from your browser passes through multiple architecture layers:
 
 ```
-Browser ──> DNS ──> Load Balancer (LB) / CDN ──> Reverse Proxy (Nginx, Cloudflare) ──> Web Server ──> Application Code ──> ORM ──> Database
+Browser -> DNS -> Load Balancer (LB) / CDN -> Reverse Proxy (Nginx, Cloudflare) -> Web Server -> Application Code -> ORM -> Database
 ```
 
-> **Key Concept**: Auth/session checks and caching don't live in one box — they sit at multiple points across this chain (proxy, app layer, DB layer can each do their own check; browser cache, CDN cache, app cache, DB cache can each be stale independently).
+Authentication, session verification, and caching sit at multiple points across this chain (proxy, application layer, and database layer can each perform independent checks).
 
-Why draw it as a cycle, not a straight line? **Every layer gets touched twice** — once on the way in, once on the way back out with the response. Most annoying bugs (missing headers, stale data, broken cookies) live on the return trip, not the forward one.
+Every layer is touched twice: once on the incoming request, and once on the outgoing response. Diagnostic issues (missing headers, stale cache, broken cookies) frequently occur on the return path.
 
 ---
 
-## 1. Browser
+## 1. Browser Layer
 
-Where it starts. You type a URL / click a link / JavaScript fires a `fetch()`. Needs an IP address before it can do anything else — hence DNS is next.
+Where the request originates (URL navigation, link clicks, or `fetch()` API execution). The browser requires an IP address before transmitting data.
 
-### Security & Attacks at Browser Layer
-- **XSS (Cross-Site Scripting)**: Attacker sneaks malicious JavaScript into a page you trust (e.g., an unsanitized comment box). When your browser runs it, it can steal your session cookie or act as you.
-- **CSRF (Cross-Site Request Forgery)**: You're logged into your bank in one tab; a malicious page in another tab tricks your browser into submitting a request to the bank using your still-valid session cookie.
+### Security and Attack Vectors
+- **Cross-Site Scripting (XSS)**: Malicious JavaScript is injected into untrusted inputs (e.g., comment fields). When rendered, the browser executes the script in the context of the user session.
+- **Cross-Site Request Forgery (CSRF)**: Tricking a logged-in user's browser into submitting unauthorized requests to a target application while carrying valid session cookies.
 
 ---
 
 ## 2. DNS (Domain Name System)
 
-Translates a domain name (`example.com`) into an IP address because machines route by IP, not by name. If DNS is slow or compromised, downstream components never receive legitimate traffic.
+Translates domain names (`example.com`) into IP addresses. If DNS resolution is compromised, downstream components do not receive legitimate requests.
 
-### Security & Attacks at DNS Layer
-- **DNS Spoofing / Cache Poisoning**: Attacker tricks a resolver into caching a wrong IP for a domain, so typing `bank.com` sends you to the attacker's server instead.
-- **DNS Hijacking**: Attacker compromises your domain registrar account and changes where your domain points, redirecting all traffic.
+### Security and Attack Vectors
+- **DNS Spoofing / Cache Poisoning**: Tricking a resolver into caching incorrect IP mappings, redirecting users to attacker-controlled infrastructure.
+- **DNS Hijacking**: Compromising domain registrar credentials to alter nameserver configuration.
 
 ---
 
-## 3. Load Balancer (LB) vs. CDN
+## 3. Load Balancer vs. Content Delivery Network (CDN)
 
 ### Load Balancer (LB)
-Distributes traffic across multiple copies of your own servers (e.g. 5 identical servers running your app), so no single server gets overwhelmed. Purely about traffic distribution — no caching or physical geography involved.
+Distributes incoming traffic across multiple application instances to prevent single-point overload. Focuses strictly on traffic distribution without edge caching.
 
-### CDN (Content Delivery Network)
-A global network of servers, physically closer to users than your origin server, that caches copies of your content (images, JS, CSS, sometimes whole pages).
+### Content Delivery Network (CDN)
+A distributed network of edge servers physically closer to end users that caches static and dynamic assets.
 
-- **Cache Hit**: CDN edge server answers immediately from its own copy. Origin server never sees this request.
-- **Cache Miss**: CDN fetches once from origin, saves a copy, and serves the user. Next nearby user gets the fast cached version.
-
-> **Distinction**: LB spreads traffic among your own servers in one place. CDN spreads copies of your content across the planet. Large setups use both — CDN out front globally, LB behind it distributing whatever reaches origin across multiple application servers.
+- **Cache Hit**: Served directly from the CDN edge server without reaching the origin server.
+- **Cache Miss**: The CDN fetches content from the origin server, stores a copy, and serves the user.
 
 ---
 
-## 4. CDN Origin IP Exposure & CDN Bypass
+## 4. CDN Origin IP Exposure and Bypass
 
-### The Origin/CDN Split Attack Surface
-1. **Origin IP Exposure**: If an attacker finds your real origin IP (via old DNS `A` records prior to CDN setup, forgotten subdomains, or DNS history tools like SecurityTrails), they can attack that IP directly, completely bypassing CDN WAF protection.
-2. **SSL Termination Trust**: With modes like Cloudflare's "Flexible SSL," HTTPS ends at the CDN edge, meaning the CDN can technically see traffic in plaintext before re-encrypting toward origin. Stricter modes ("Full (strict)") keep the origin connection encrypted and verified.
-3. **CDN Account Security**: If an attacker compromises your CDN dashboard login, they can redirect all traffic, issue fake certificates, or disable protections without touching your origin server.
+### Security Risks
+1. **Origin IP Exposure**: Finding the real origin IP (via historical DNS records, unproxied subdomains, or reconnaissance tools) allows attackers to bypass CDN WAF controls.
+2. **SSL Termination**: In incomplete TLS modes (e.g., Flexible SSL), traffic between the CDN edge and origin server is unencrypted.
+3. **CDN Account Compromise**: Access to the CDN management dashboard allows unauthorized traffic redirection or security rule suppression.
 
-### Origin Firewall Mitigation
-Configure the origin server's firewall (`iptables` / cloud security group) to accept connections **only from the CDN's published IP ranges**, rejecting everything else — so even if the real origin IP leaks, it cannot be reached directly.
+### Mitigation
+Configure origin firewalls (`iptables` or cloud security groups) to accept connections exclusively from published CDN IP ranges, dropping all direct traffic.
 
 ---
 
-## 5. DDoS via Leaked Origin IP
+## 5. Distributed Denial of Service (DDoS)
 
-### How it Works
-* **DDoS (Distributed Denial of Service)**: Flooding a server with far more requests than it can handle (connections, bandwidth, CPU) until it crashes.
-* Behind a CDN, floods are absorbed at the CDN's edge. But if an attacker points a botnet straight at a leaked origin IP, they skip that shield entirely.
-
-```
-Attacker ──(Botnet Flood)──> Leaked Origin IP (Bypasses CDN WAF Shield) ──> Origin Server Crash
-```
+DDoS attacks attempt to saturate target bandwidth, CPU, or connection pools using distributed botnets. While CDNs absorb volumetric traffic at edge locations, direct attacks on exposed origin IPs bypass edge protections.
