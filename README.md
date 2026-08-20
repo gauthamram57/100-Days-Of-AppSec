@@ -1,6 +1,6 @@
 # 🛡️ 100-Days-Of-AppSec
 
-Documenting my daily journey of mastering Application Security, web exploitation, DevSecOps, bug bounty methodology, networking, and PortSwigger Web Security Academy labs.
+Documenting my daily journey of mastering Application Security, web exploitation, DevSecOps, container security, bug bounty methodology, networking, and PortSwigger Web Security Academy labs.
 
 ---
 
@@ -14,6 +14,8 @@ Documenting my daily journey of mastering Application Security, web exploitation
 ├── Network-Security-Refresher/
 │   ├── request-lifecycle.md        # HTTP Request Lifecycle (DNS -> CDN -> LB -> App)
 │   └── networking-fundamentals.md  # OSI Model & Protocol Security
+├── DevSecOps-Container-Security/
+│   └── docker-kubernetes-notes.md  # Docker CLI, Hardening & Trivy Image Scanning
 ├── PortSwigger-Labs/
 │   ├── SQL-Injection/
 │   ├── Authentication-Vulnerabilities/
