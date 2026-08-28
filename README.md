@@ -14,7 +14,9 @@ Documenting my daily journey of mastering Application Security, web exploitation
 ├── HTB-Writeups/                   # Hack The Box Walkthroughs & Machine Writeups
 │   ├── README.md                   # HTB Index & Machine Breakdown
 │   ├── Cap/                        # Cap (Linux / Easy) - IDOR, Pcap Analysis, Capabilities Privesc
-│   └── Fireflow/                   # Fireflow (Linux / Medium) - MCP, JWT Bypass, Langflow RCE, K8s Breakout
+│   ├── Fireflow/                   # Fireflow (Linux / Medium) - MCP, JWT Bypass, Langflow RCE, K8s Breakout
+│   ├── Nexus/                      # Nexus (Linux / Hard) - JWT alg=none, MCP Tool RCE, K8s Kubelet Exec
+│   └── Cohort/                     # Cohort (Linux / Medium) - SSRF, Marimo WebSocket RCE, PackageKit CVE-2026-41651
 ├── Network-Security-Refresher/
 │   ├── request-lifecycle.md        # HTTP Request Lifecycle (DNS -> CDN -> LB -> App)
 │   └── networking-fundamentals.md  # OSI Model & Protocol Security
@@ -37,6 +39,8 @@ Detailed walkthroughs for retired HTB machines and custom labs are organized in 
 | :--- | :--- | :--- | :--- | :--- |
 | **Cap** | Linux | Easy | `10.129.81.72` | [Cap Write-up](./HTB-Writeups/Cap/README.md) |
 | **Fireflow** | Linux | Medium | `10.129.81.75` | [Fireflow Write-up](./HTB-Writeups/Fireflow/README.md) |
+| **Nexus** | Linux | Hard | `10.129.234.54` | [Nexus Write-up](./HTB-Writeups/Nexus/README.md) |
+| **Cohort** | Linux | Medium | `10.129.82.27` | [Cohort Write-up](./HTB-Writeups/Cohort/README.md) |
 
 ---
 
