@@ -4,6 +4,14 @@ Welcome to my **Hack The Box Writeups** repository! This directory contains deta
 
 ---
 
+## Progress & Statistics
+
+| Total Machines | Easy | Medium | Hard | Primary Focus |
+| :---: | :---: | :---: | :---: | :--- |
+| **4** | 1 | 2 | 1 | Web Security, API Security, Container/K8s Breakouts |
+
+---
+
 ## Methodology & Framework
 
 Before diving into specific machine writeups, check out the [HTB Machine Methodology Guide](./htb-methodology.md) for a complete breakdown of recon, web exploitation, and privilege escalation patterns.
