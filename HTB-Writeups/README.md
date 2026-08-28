@@ -1,10 +1,16 @@
-# Hack The Box (HTB) Writeups 🎯
+# Hack The Box (HTB) Writeups
 
 Welcome to my **Hack The Box Writeups** repository! This directory contains detailed walkthroughs, vulnerability analyses, and proof-of-concept writeups for HTB machines and challenges.
 
 ---
 
-## 📖 Methodology & Framework\n\nBefore diving into specific machine writeups, check out the [HTB Machine Methodology Guide](./htb-methodology.md) for a complete breakdown of recon, web exploitation, and privilege escalation patterns.\n\n---\n\n## 📌 Writeup Index
+## Methodology & Framework
+
+Before diving into specific machine writeups, check out the [HTB Machine Methodology Guide](./htb-methodology.md) for a complete breakdown of recon, web exploitation, and privilege escalation patterns.
+
+---
+
+## Writeup Index
 
 | Machine / Challenge | OS | Difficulty | Target IP | Writeup Link |
 | :--- | :--- | :--- | :--- | :--- |
@@ -15,7 +21,7 @@ Welcome to my **Hack The Box Writeups** repository! This directory contains deta
 
 ---
 
-## 🛠️ Machine Breakdown
+## Machine Breakdown
 
 ### 1. [Cap](./Cap/README.md)
 * **OS:** Linux
@@ -39,7 +45,7 @@ Welcome to my **Hack The Box Writeups** repository! This directory contains deta
 
 ---
 
-## 👤 Author
+## Author
 
 **Gautham Ram**
 - GitHub: [@gauthamram57](https://github.com/gauthamram57)

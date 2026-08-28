@@ -302,28 +302,28 @@ root.txt
 
 ```text
 SSH
- ↓
+ ->
 MCP config credentials
- ↓
+ ->
 JWT alg=none
- ↓
+ ->
 Forged admin JWT
- ↓
+ ->
 Register arbitrary MCP tool
- ↓
+ ->
 Code execution in MCP pod
- ↓
+ ->
 Kubernetes service-account token
- ↓
+ ->
 nodes/proxy permission
- ↓
+ ->
 Privileged node-exporter pod
- ↓
+ ->
 Host / mounted into pod
- ↓
+ ->
 Kubelet WebSocket exec
- ↓
+ ->
 root on host filesystem
- ↓
+ ->
 /root/root.txt
 ```

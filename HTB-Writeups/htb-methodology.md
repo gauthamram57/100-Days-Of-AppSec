@@ -1,18 +1,18 @@
-# HTB Machine Penetration Testing & Methodology Guide 🛠️
+# HTB Machine Penetration Testing & Methodology Guide
 
 A structured methodology and attack framework derived from real HTB machine writeups (**Cap**, **Fireflow**, **Nexus**, **Cohort**). This guide outlines standard workflows from initial enumeration to root-level privilege escalation.
 
 ---
 
-## 📌 Methodology Overview
+## Methodology Overview
 
 ```
-1. Recon & Enumeration ➔ 2. Initial Access / Web Exploitation ➔ 3. Privilege Escalation & Breakouts ➔ 4. Root Flag
+1. Recon & Enumeration -> 2. Initial Access / Web Exploitation -> 3. Privilege Escalation & Breakouts -> 4. Root Flag
 ```
 
 ---
 
-## 1. Initial Reconnaissance & Enumeration 🔍
+## 1. Initial Reconnaissance & Enumeration
 
 ### A. Port Scanning
 Always begin with full-port TCP discovery, followed by detailed service scanning:
@@ -39,7 +39,7 @@ sudo sh -c 'echo "<TARGET_IP> cohort.htb" >> /etc/hosts'
 
 ---
 
-## 2. Web Exploitation & Initial Access 🎯
+## 2. Web Exploitation & Initial Access
 
 ### A. Exposed Credentials & Config Leakage
 - Search home directories or web configs for leaked tokens or credentials (e.g., `~/.mcp/config.json` containing service passwords or API endpoints).
@@ -70,7 +70,7 @@ wscat -n -c wss://<HOST>/terminal/ws -x $'id; whoami; pwd\n'
 
 ---
 
-## 3. Post-Exploitation & Internal Enumeration 📊
+## 3. Post-Exploitation & Internal Enumeration
 
 Once initial access is established:
 
@@ -87,7 +87,7 @@ Once initial access is established:
 
 ---
 
-## 4. Privilege Escalation & Container Breakout ⚡
+## 4. Privilege Escalation & Container Breakout
 
 ### Vector A: Linux Capabilities (`cap_setuid`)
 - Inspect capabilities assigned to system binaries (e.g., `/usr/bin/python3.8 = cap_setuid+ep`).
@@ -118,7 +118,7 @@ Once initial access is established:
 
 ---
 
-## 💡 Key Lessons & Practical Troubleshooting Tips
+## Key Lessons & Practical Troubleshooting Tips
 
 1. **Transient Reverse Shells:** If a reverse shell drops immediately, switch to non-interactive single-command invocations (`wscat -x` or single-line cURL payloads).
 2. **Background Exploit Polling:** Use `nohup command > log 2>&1 &` for exploits that require background daemon/lock polling (e.g., Pack2TheRoot).

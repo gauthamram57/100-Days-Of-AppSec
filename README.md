@@ -32,7 +32,7 @@ Documenting my daily journey of mastering Application Security, web exploitation
 
 ---
 
-## 🚩 Hack The Box Writeups
+## Hack The Box Writeups
 
 Detailed walkthroughs for retired HTB machines and custom labs are organized in [`HTB-Writeups/`](./HTB-Writeups/README.md):
 

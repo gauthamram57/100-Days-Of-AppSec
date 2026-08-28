@@ -326,28 +326,28 @@ and the root flag:
 
 ```text
 cohort.htb
- ↓
+ ->
 POST /api/validate
- ↓
+ ->
 SSRF
- ↓
+ ->
 0.0.0.0/status
- ↓
+ ->
 hidden Marimo hostname
- ↓
+ ->
 /terminal/ws
- ↓
+ ->
 Marimo RCE
- ↓
+ ->
 marimo user
- ↓
+ ->
 PackageKit 1.2.8
- ↓
+ ->
 CVE-2026-41651
- ↓
+ ->
 SUID bash
- ↓
+ ->
 euid=0
- ↓
+ ->
 /root/root.txt
 ```

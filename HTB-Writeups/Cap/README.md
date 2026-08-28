@@ -227,13 +227,13 @@ The attack chain was:
 
 ```
 PCAP
- ↓
+ ->
 FTP credentials exposed
- ↓
+ ->
 nathan password recovered
- ↓
+ ->
 Same password used for SSH
- ↓
+ ->
 SSH access as nathan
 ```
 This is a very common real-world security problem.
@@ -342,11 +342,11 @@ So we successfully escalated:
 
 ```
 nathan
-  ↓
+  ->
 Python with cap_setuid
-  ↓
+  ->
 UID 0
-  ↓
+  ->
 root
 ```
 
