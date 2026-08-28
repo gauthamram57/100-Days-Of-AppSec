@@ -13,6 +13,7 @@ Documenting my daily journey of mastering Application Security, web exploitation
 │   └── attack-flow.md              # 5-Step Vulnerability Discovery Framework
 ├── HTB-Writeups/                   # Hack The Box Walkthroughs & Machine Writeups
 │   ├── README.md                   # HTB Index & Machine Breakdown
+│   ├── htb-methodology.md          # Unified HTB Penetration Testing Methodology
 │   ├── Cap/                        # Cap (Linux / Easy) - IDOR, Pcap Analysis, Capabilities Privesc
 │   ├── Fireflow/                   # Fireflow (Linux / Medium) - MCP, JWT Bypass, Langflow RCE, K8s Breakout
 │   ├── Nexus/                      # Nexus (Linux / Hard) - JWT alg=none, MCP Tool RCE, K8s Kubelet Exec

@@ -4,7 +4,7 @@ Welcome to my **Hack The Box Writeups** repository! This directory contains deta
 
 ---
 
-## 📌 Writeup Index
+## 📖 Methodology & Framework\n\nBefore diving into specific machine writeups, check out the [HTB Machine Methodology Guide](./htb-methodology.md) for a complete breakdown of recon, web exploitation, and privilege escalation patterns.\n\n---\n\n## 📌 Writeup Index
 
 | Machine / Challenge | OS | Difficulty | Target IP | Writeup Link |
 | :--- | :--- | :--- | :--- | :--- |
