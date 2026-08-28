@@ -1,6 +1,6 @@
 # 100-Days-Of-AppSec
 
-Documenting my daily journey of mastering Application Security, web exploitation, DevSecOps, container security, bug bounty methodology, networking, and PortSwigger Web Security Academy labs.
+Documenting my daily journey of mastering Application Security, web exploitation, DevSecOps, container security, bug bounty methodology, networking, Hack The Box (HTB) writeups, and PortSwigger Web Security Academy labs.
 
 ---
 
@@ -11,6 +11,10 @@ Documenting my daily journey of mastering Application Security, web exploitation
 ├── Bug-Bounty-Methodology/
 │   ├── recon-playbook.md           # Subdomain Enumeration (subfinder, amass, httpx)
 │   └── attack-flow.md              # 5-Step Vulnerability Discovery Framework
+├── HTB-Writeups/                   # Hack The Box Walkthroughs & Machine Writeups
+│   ├── README.md                   # HTB Index & Machine Breakdown
+│   ├── Cap/                        # Cap (Linux / Easy) - IDOR, Pcap Analysis, Capabilities Privesc
+│   └── Fireflow/                   # Fireflow (Linux / Medium) - MCP, JWT Bypass, Langflow RCE, K8s Breakout
 ├── Network-Security-Refresher/
 │   ├── request-lifecycle.md        # HTTP Request Lifecycle (DNS -> CDN -> LB -> App)
 │   └── networking-fundamentals.md  # OSI Model & Protocol Security
@@ -22,6 +26,17 @@ Documenting my daily journey of mastering Application Security, web exploitation
 │   ├── Cross-Site-Scripting-XSS/
 │   └── CSRF/
 ```
+
+---
+
+## 🚩 Hack The Box Writeups
+
+Detailed walkthroughs for retired HTB machines and custom labs are organized in [`HTB-Writeups/`](./HTB-Writeups/README.md):
+
+| Machine / Challenge | OS | Difficulty | Target IP | Writeup Link |
+| :--- | :--- | :--- | :--- | :--- |
+| **Cap** | Linux | Easy | `10.129.81.72` | [Cap Write-up](./HTB-Writeups/Cap/README.md) |
+| **Fireflow** | Linux | Medium | `10.129.81.75` | [Fireflow Write-up](./HTB-Writeups/Fireflow/README.md) |
 
 ---
 
