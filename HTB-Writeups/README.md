@@ -8,7 +8,7 @@ Welcome to my **Hack The Box Writeups** repository! This directory contains deta
 
 | Total Machines | Easy | Medium | Hard | Primary Focus |
 | :---: | :---: | :---: | :---: | :--- |
-| **4** | 1 | 2 | 1 | Web Security, API Security, Container/K8s Breakouts |
+| **6** | 2 | 3 | 1 | Web Security, API Security, Container/K8s Breakouts, CMS Object Injection, SMB/Spoolss RCE |
 
 ---
 
@@ -26,6 +26,8 @@ Before diving into specific machine writeups, check out the [HTB Machine Methodo
 | **Fireflow** | Linux | Medium | `10.129.81.75` | [Fireflow Write-up](./Fireflow/README.md) |
 | **Nexus** | Linux | Hard | `10.129.234.54` | [Nexus Write-up](./Nexus/README.md) |
 | **Cohort** | Linux | Medium | `10.129.82.27` | [Cohort Write-up](./Cohort/README.md) |
+| **Orion** | Linux | Easy | `10.129.126.138` | [Orion Write-up](./Orion/README.md) |
+| **Abducted** | Linux | Medium | `10.129.244.177` | [Abducted Write-up](./Abducted/README.md) |
 
 ---
 
@@ -50,6 +52,16 @@ Before diving into specific machine writeups, check out the [HTB Machine Methodo
 * **OS:** Linux
 * **Difficulty:** Medium
 * **Vector Summary:** SSRF via `/api/validate` to internal Marimo notebook service (`0.0.0.0/status`), WebSocket terminal RCE, and PackageKit 1.2.8 privilege escalation via Pack2TheRoot (CVE-2026-41651).
+
+### 5. [Orion](./Orion/README.md)
+* **OS:** Linux
+* **Difficulty:** Easy
+* **Vector Summary:** Craft CMS 5.6.16 web enumeration (`/admin/login`), CVE-2025-32432 object injection via asset image-transform (`PhpManager` construct), session poisoning with PHP RCE payload, and initial shell access.
+
+### 6. [Abducted](./Abducted/README.md)
+* **OS:** Linux
+* **Difficulty:** Medium
+* **Vector Summary:** Samba SMB anonymous enumeration (`HP-Reception` printer share), CVE-2026-4480 spoolss RPC command injection (`|sh` document_name & `%J` print command execution), ICMP validation, and reverse shell as `nobody`.
 
 ---
 

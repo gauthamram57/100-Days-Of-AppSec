@@ -17,7 +17,9 @@ Documenting my daily journey of mastering Application Security, web exploitation
 │   ├── Cap/                        # Cap (Linux / Easy) - IDOR, Pcap Analysis, Capabilities Privesc
 │   ├── Fireflow/                   # Fireflow (Linux / Medium) - MCP, JWT Bypass, Langflow RCE, K8s Breakout
 │   ├── Nexus/                      # Nexus (Linux / Hard) - JWT alg=none, MCP Tool RCE, K8s Kubelet Exec
-│   └── Cohort/                     # Cohort (Linux / Medium) - SSRF, Marimo WebSocket RCE, PackageKit CVE-2026-41651
+│   ├── Cohort/                     # Cohort (Linux / Medium) - SSRF, Marimo WebSocket RCE, PackageKit CVE-2026-41651
+│   ├── Orion/                      # Orion (Linux / Easy) - Craft CMS 5.6.16 CVE-2025-32432 Object Injection & Session Poisoning
+│   └── Abducted/                   # Abducted (Linux / Medium) - Samba Spoolss RPC CVE-2026-4480 Command Injection RCE
 ├── Network-Security-Refresher/
 │   ├── request-lifecycle.md        # HTTP Request Lifecycle (DNS -> CDN -> LB -> App)
 │   └── networking-fundamentals.md  # OSI Model & Protocol Security
@@ -42,6 +44,8 @@ Detailed walkthroughs for retired HTB machines and custom labs are organized in 
 | **Fireflow** | Linux | Medium | `10.129.81.75` | [Fireflow Write-up](./HTB-Writeups/Fireflow/README.md) |
 | **Nexus** | Linux | Hard | `10.129.234.54` | [Nexus Write-up](./HTB-Writeups/Nexus/README.md) |
 | **Cohort** | Linux | Medium | `10.129.82.27` | [Cohort Write-up](./HTB-Writeups/Cohort/README.md) |
+| **Orion** | Linux | Easy | `10.129.126.138` | [Orion Write-up](./HTB-Writeups/Orion/README.md) |
+| **Abducted** | Linux | Medium | `10.129.244.177` | [Abducted Write-up](./HTB-Writeups/Abducted/README.md) |
 
 ---
 
